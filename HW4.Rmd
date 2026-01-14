@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE,
 
 ### Question 1: (2 pts)
 
-First load the `tidyverse` package so that we can have access to the `tidyverse` data transformation functions. We also want to look at the `penguins` dataset, which is inside the `palmerpenguins` package:
+First load the `tidyverse` package so that we can have access to the `tidyverse` data transformation functions. We also want to look at the `penguins` dataset, which is inside the `palmerpenguins` package (note this dataset was briefly described in Week 1 lecture):
 
 ```{r message=FALSE}
 # Load tidyverse
