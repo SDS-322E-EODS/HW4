@@ -22,22 +22,26 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE,
 
 ### Question 1: (2 pts)
 
-First load the `tidyverse` package so that we can have access to the `tidyverse` data transformation functions. We also want to look at the `penguins` dataset.
+First load the `tidyverse` package so that we can have access to the `tidyverse` data transformation functions. We also want to look at the `penguins` dataset from the `palmerpenguins` package. **IMPORTANT**: Please do NOT use the base R dataset that we have been using in lecture. The below code block will make sure you are loading the correct `penguins` dataset and should not need to be edited.
 
 ```{r message=FALSE}
 
-## There is no need to edit this code block.
 # Load tidyverse
 library(tidyverse)
 
+# Load palmerpenguins
+# You may need to uncomment the next line to install the palmerpenguins package
+# install.packages('palmerpenguins')
+library(palmerpenguins)
+
 # Save the data as a dataframe
-penguins <- tibble(datasets::penguins)
+penguins <- tibble(palmerpenguins::penguins)
 
 # Take a look at the top of the data frame 
 penguins |> head()
 ```
 
-More information about `penguins`, such as the units of each variable, can be found by typing `?datasets::penguins` into the console.
+More information about `penguins` can be found by typing `?palmerpenguins::penguins` into the console.
 
 Using a `tidyverse` function, keep all the rows/observations in the `penguins` dataset from the year 2007 and save the result as a new object called `penguins_2007`. Compare the number of observations/rows in the original `penguins` dataset with your new `penguins_2007` dataset.
 
@@ -65,7 +69,7 @@ Using `tidyverse` functions on `penguins_2007`, report the number of observation
 
 ### Question 3: (2 pts)
 
-Using `tidyverse` functions on `penguins_2007`, create a new variable that contains the ratio of `bill_len` to `bill_dep` (call it `bill_ratio`). *Once you checked that your variable is created correctly*, overwrite `penguins_2007` so it contains this new variable.
+Using `tidyverse` functions on `penguins_2007`, create a new variable that contains the ratio of `bill_length_mm` to `bill_depth_mm` (call it `bill_ratio`). *Once you checked that your variable is created correctly*, overwrite `penguins_2007` so it contains this new variable.
 
 ```{r}
 # your code goes below (make sure to edit comment)
@@ -111,7 +115,7 @@ Using `tidyverse` functions on `penguins_2007`, calculate the mean and standard 
 
 ### Question 6: (2 pts)
 
-Using `tidyverse` functions on `penguins_2007`, remove missing values for `sex`. Pipe a `ggplot` to create a single plot showing the distribution of `body_mass` colored by male and female penguins, faceted by species (use the function `facet_wrap()` with the option `nrow =` to give each species its own row). Which species shows the least sexual dimorphism (i.e., the greatest overlap of male/female size distributions)?
+Using `tidyverse` functions on `penguins_2007`, remove missing values for `sex`. Pipe a `ggplot` to create a single plot showing the distribution of `body_mass_g` colored by male and female penguins, faceted by species (use the function `facet_wrap()` with the option `nrow =` to give each species its own row). Which species shows the least sexual dimorphism (i.e., the greatest overlap of male/female size distributions)?
 
 ```{r}
 # your code goes below (make sure to edit comment)
@@ -124,7 +128,7 @@ Using `tidyverse` functions on `penguins_2007`, remove missing values for `sex`.
 
 ### Question 7: (2 pts)
 
-Pipe `penguins_2007` to `ggplot()` to create a scatterplot of `body_mass_g` (y-axis) against `bill_ratio` (x-axis). Does it look like there is a relationship between the bill ratio and the body mass? *Note: you might see a Warning message.* What does this message refer to?
+Pipe `penguins_2007` to `ggplot()` to create a scatterplot of `body_mass_g_g` (y-axis) against `bill_ratio` (x-axis). Does it look like there is a relationship between the bill ratio and the body mass? *Note: you might see a Warning message.* What does this message refer to?
 
 ```{r}
 # your code goes below (make sure to edit comment)
@@ -152,7 +156,7 @@ What if we separate each species? Duplicate the plot from the previous question 
 
 Finally, let's make a plot using the original `penguins` dataset (not just the 2007 data). Forewarning: This will be very busy plot!
 
-Map `body_mass` to the y-axis, `flipper_len` to the x-axis, `species` to color, and `island` to shape. Using `facet_wrap()`, facet the plots by `year`. Find a way to clean up the x-axis labels (e.g., reduce the number of tick marks) using `scale_x_continuous()`. Does there appear to be a relationship between body mass and flipper length overall? Is there a relationship within each species? What happens to the distribution of flipper lengths for species over time?
+Map `body_mass_g` to the y-axis, `flipper_length_mm` to the x-axis, `species` to color, and `island` to shape. Using `facet_wrap()`, facet the plots by `year`. Find a way to clean up the x-axis labels (e.g., reduce the number of tick marks) using `scale_x_continuous()`. Does there appear to be a relationship between body mass and flipper length overall? Is there a relationship within each species? What happens to the distribution of flipper lengths for species over time?
 
 ```{r}
 # your code goes below (make sure to edit comment)
